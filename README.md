@@ -3,7 +3,7 @@ TraktForVLC [![Travis Build Status](https://travis-ci.org/XaF/TraktForVLC.svg?br
 
 TraktForVLC allows scrobbling VLC content to [trakt.tv](https://trakt.tv/).
 
-TraktForVLC 2.x works by using together a lua VLC module and a Python helper script in order to find information on the media you are watching.
+TraktForVLC 2.x works by using a lua VLC module and a Python helper script together in order to find information on the media you are watching.
 Contrary to previous versions of TraktForVLC, the VLC module allows for a direct binding in your media activity (play, pause, stop) and thus to take immediate actions on your [trakt.tv](https://trakt.tv/) account.
 
 
@@ -28,7 +28,7 @@ Contrary to previous versions of TraktForVLC, the VLC module allows for a direct
 
 This version of TraktForVLC has been rewritten from scratch.
 
-All licensing and used code is mentionned directly in the code source, except for the external libraries and resources information provided below.
+All licensing and used code is mentioned directly in the code source, except for the external libraries and resources information provided below.
 
 ### License
 
@@ -62,9 +62,9 @@ Once you have found the installer that corresponds to your operating system and 
 
 ### Installation per OS
 
-On Windows, you can right-click and run the file with the administrator privileges to start the install process. The administrator privileges are required as, on Windows, the Python helper is installed as a Windows service.
+On Windows, you can right-click and run the file with the administrator privileges to start the install process. The administrator privileges are required as on Windows, the Python helper is installed as a Windows service.
 
-On Linux and MacOS, make the file executable (using `chmod +x file`) and then run it in the command line (`./TraktForVLC_version_os`).
+On Linux and MacOS, make the file executable (using `chmod +x file`) and then run it from the command line (`./TraktForVLC_version_os`).
 
 ### Initial configuration
 
@@ -84,8 +84,8 @@ AND ENTER THE FOLLOWING CODE:
 9EC4F248
 ```
 
-The instructions are to go to a URL and enter a given code. Please do while keeping the process (VLC window on Windows) active, and wait after entering the code and validating the authorization that the process stops by itself.
-If you stops the process before then, you will need to restart the initial configuration manually.
+The instructions tell you to open a URL and enter a given code. Please do so while keeping the process (VLC window on Windows) active, and wait after entering the code and validating the authorization that the process stops by itself.
+If you stop the process before then, you will need to restart the initial configuration manually.
 
 To restart the initial configuration process manually, the following command might be used: `./TraktForVLC_version_os init_trakt_auth`
 
@@ -94,7 +94,7 @@ To restart the initial configuration process manually, the following command mig
 The configuration file for TraktForVLC is a JSON file named `trakt_config.json`.
 
 ### Location
-The `trakt_config.json` file is located in your VLC configuration directory. Depending on your OS, the VLC configuration directory will be located at the following places:
+The `trakt_config.json` file is located in your VLC configuration directory. Depending on your OS, the VLC configuration directory will be located in the following places:
 * Linux: `~/.config/vlc`
 * MacOS: `~/Library/Preferences/org.videolan.vlc`
 * Windows: `%APPDATA%/vlc` (where `%APPDATA%` is the value of the `APPDATA` environment variable)
@@ -117,31 +117,31 @@ The `trakt_config.json` file is located in your VLC configuration directory. Dep
         * `movie`: Whether or not to mark movies as being watched (default: `true`)
         * `episode`: Whether or not to mark episodes as being watched (default: `true`)
     * `stop`: Configuration relative to media scrobbling
-        * `watched_percent`: The minimum watched percent for a media to be scrobbled as seen on [trakt.tv](https://trakt.tv); i.e. you must have watched at least that percentage of the media, for it to be scrobbled (default: `50`)
+        * `watched_percent`: The minimum watched percent for media to be scrobbled as seen on [trakt.tv](https://trakt.tv); i.e. you must have watched at least this percentage of the media file for it to be scrobbled (default: `50`)
         * `percent`: The minimum percentage of the media duration at which you must currently be for the media to be scrobbled as seen (if the media has a duration of `100mn`, and you configured the `percent` as `90`, you must at least be at the `90th` minute of the media) (default: `90`)
         * `movie`: Whether or not to scrobble movies as watched (default: `true`)
         * `episode`: Whether or not to scrobble episodes as watched (default: `true`)
-        * `check_unprocessed_delay`: Delay (in seconds) between checks for medias that should be scrobbled as watched but have not been for any reason (no internet connection, media not identified yet, etc.) (default: `120`)
+        * `check_unprocessed_delay`: Delay (in seconds) between checks for media which should be scrobbled as watched but has not been scrobbled for whatever reason (no internet connection, media not identified yet, etc.) (default: `120`)
         * `delay`: Delay (in seconds) between scrobbles for a given media (any subsequent scrobble in the given delay will be ignored) (default: `1200` - 20 minutes)
 * `helper`: Configuration relative to the helper tool
     * `mode`: The mode of the helper. Can be one of `standalone` or `service` (default: `standalone`)
-    * `service`: The service configuration, when the helper is installed as a service
+    * `service`: The service configuration when the helper is installed as a service
         * `host`: The host on which the service is listening (default: `localhost`)
         * `port`: The port on which the service is listening (default: `1984`)
     * `update`: To configure the automatic updates for TraktForVLC
-        * `check_delay`: Delay (in seconds) in between checks for new updates, disabled if set to `0` (default: `86400` - 24 hours)
+        * `check_delay`: Delay (in seconds) in-between checks for new updates; disabled if set to `0` (default: `86400` - 24 hours)
         * `release_type`: The type of releases to look for. Can be one of `stable`, `rc`, `beta`, `alpha` or `latest` (default: `stable`)
-        * `action`: The action to perform automatically when a new release is found. Can be one of `install`, `download` or `check` (default: `install`)
+        * `action`: The action to be performed automatically when a new release is found. Can be one of `install`, `download` or `check` (default: `install`)
 
 
 ## Issues
-Please use the [GitHub integrated issue tracker](https://github.com/XaF/TraktForVLC/issues) for every problem you can encounter. Please **DO NOT** use my email for issues or walkthrough.
+Please use the [GitHub integrated issue tracker](https://github.com/XaF/TraktForVLC/issues) for every problem you encounter. Please **DO NOT** use my email for issues or walkthroughs.
 
-When submitting an issue, please submit a VLC logfile showing the error. You can start VLC in debug mode (`-vv` option) to obtain more thorough logs.
+When submitting an issue, always submit a VLC logfile which shows the error. You can start VLC in debug mode (`-vv` option) to obtain more thorough logs.
 
 On MacOS, VLC is run from the command line in verbose mode like so:
 ```
 $ /Applications/VLC.app/Contents/MacOS/VLC -vv
 ```
 
-> **Please** be careful to remove any personnal information that might still be in the logfile (password, identification token, ...) before putting your file online.
+Please be careful to **remove any personal information** that might still be in the logfile (password, identification token,...) before putting your file online.
