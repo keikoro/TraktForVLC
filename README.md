@@ -137,6 +137,11 @@ The `trakt_config.json` file is located in your VLC configuration directory. Dep
 ## Issues
 Please use the [GitHub integrated issue tracker](https://github.com/XaF/TraktForVLC/issues) for every problem you can encounter. Please **DO NOT** use my email for issues or walkthrough.
 
-When submitting an issue, please submit a VLC logfile showing the error. You can start VLC in debug mode (`--vv` option) to obtain more thorough logs.
+When submitting an issue, please submit a VLC logfile showing the error. You can start VLC in debug mode (`-vv` option) to obtain more thorough logs.
+
+On MacOS, VLC is run from the command line in verbose mode like so:
+```
+$ /Applications/VLC.app/Contents/MacOS/VLC -vv
+```
 
 > **Please** be careful to remove any personnal information that might still be in the logfile (password, identification token, ...) before putting your file online.
